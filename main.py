@@ -28,6 +28,7 @@ render_parser.add_argument(
         "knowledge-check-blueprint",
         "skill-framework-verifier",
         "lab-environment-blueprint",
+        "preparation-instructor-blueprint",
     ],
 )
 render_parser.add_argument(
@@ -147,7 +148,9 @@ def main():
 
     if args.command == "render":
         if not args.topic:
-            raise ValueError("Topic is required. Use render <topic> <artifact> to specify the topic and artifact.")
+            raise ValueError(
+                "Topic is required. Use render <topic> <artifact> to specify the topic and artifact."
+            )
 
         topic_slug = slugify(args.topic)
         base_dir = os.path.join("work", topic_slug)
@@ -173,10 +176,14 @@ def main():
         )
 
         # Now render the requested artifact
-        if args.artifact == "knowledge-check-blueprint":
-            create_artifact(args.topic, args.artifact, {"skill_framework": skill_framework})
-        elif args.artifact == "lab-environment-blueprint":
-            create_artifact(args.topic, args.artifact, {"skill_framework": skill_framework})
+        if args.artifact in [
+            "knowledge-check-blueprint",
+            "preparation-instructor-blueprint",
+            "lab-environment-blueprint",
+        ]:
+            create_artifact(
+                args.topic, args.artifact, {"skill_framework": skill_framework}
+            )
         elif args.artifact == "skill-framework-verifier":
             if not args.mcp_tools_fn:
                 raise ValueError(
@@ -195,6 +202,7 @@ def main():
                 "lab-environment-blueprint, skill-framework-verifier"
             )
         return
+
 
 if __name__ == "__main__":
     try:

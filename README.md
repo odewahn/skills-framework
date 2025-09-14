@@ -138,7 +138,16 @@ This matrix shows how the blueprint terms we use map to established concepts in 
 
 # Usage
 
-python main.py git skill-framework
-python main.py git knowledge-check-verifier
-python main.py git skill-framework-verifier --mcp-tools-fn=example-git-skill-mcp.json
-python main.py git lab-environment-blueprint
+# Initialize a workspace for a topic (creates work/<topic-slug>/generators)
+
+python main.py init <topic> [--force]
+
+# Render the skill-framework prompt into generators/ and placeholder result in work/<topic-slug>/
+
+python main.py render <topic> skill-framework
+
+# Render other artifacts after pasting skill-framework.md into ChatGPT
+
+python main.py render <topic> knowledge-check-blueprint
+python main.py render <topic> lab-environment-blueprint
+python main.py render <topic> skill-framework-verifier --mcp-tools-fn example-bash-mcp.json

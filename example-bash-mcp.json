@@ -1,7 +1,7 @@
 [
   {
     "name": "shell_execute",
-    "description": "Execute a shell command\nAllowed commands: git",
+    "description": "Execute a shell command\nAllowed commands: jq",
     "input_schema": {
       "type": "object",
       "properties": {
