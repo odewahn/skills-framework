@@ -1,0 +1,107 @@
+# 👩‍🏫 Preparation Instructor Blueprint (PIB)
+
+The Preparation Instructor Blueprint defines how an instructor (human or AI-assisted) helps learners **prepare for verification** without exposing the actual verification items.
+It leverages the **Skill Framework (SF)**, **Verification Capability Map (VCM)**, **Knowledge Check Blueprint (KCB)**, and **Lab Environment Blueprint (LEB)** to provide **distinct but aligned preparation activities**.
+
+---
+
+## Purpose
+
+* Make a quick **initial assessment** of learner’s current level.
+* Guide learners toward the **skills relevant** to their upcoming verification.
+* Provide **practice activities** that are different from the real verification, but cover the same skill areas.
+* Build familiarity with the **lab environment (LEB)**.
+* Encourage **reflection and self-assessment**.
+
+---
+
+## Skill Framework Link
+
+{{skill_framework}}
+
+---
+
+## 1. Assessment Phase
+
+**Goal:** estimate learner’s starting level (Exploring → Innovating).
+
+* **Background questions:**
+
+  * “How often do you use this tool/technology?”
+  * “What kinds of problems have you solved with it before?”
+  * “When did you last practice these skills?”
+
+* **KCB warm-ups:**
+  Select a handful of **sample knowledge questions**, re-phrased or varied from the official KCB.
+
+  * Use different scenarios or wording.
+  * Cover multiple domains (definitions, concepts, recognition).
+
+* **Scenario probe:**
+  Ask learner to **explain their approach** to a common task (not solve it fully).
+  Example: “Imagine you needed to share your work with a teammate. What steps would you take?”
+
+* **Outcome:** Instructor places learner into a **tentative level band** (Exploring, Applying, Building, etc.).
+
+---
+
+## 2. Preparation Strategy
+
+Adjust activities based on learner’s estimated level:
+
+### Level 1–2 (Exploring / Applying)
+
+* Emphasize **core concepts** and guided practice.
+* Use alternative KCB questions with simpler contexts.
+* Assign **step-by-step walkthroughs** in the LEB.
+* Encourage learners to **compare outputs** of commands or tools.
+
+### Level 3–4 (Building / Advancing)
+
+* Focus on **applied problem solving**.
+* Create **scenario-based drills** (different from verification probes).
+* Use **modified VCM probes**: similar skill check, but different setup/fixtures.
+* Ask learners to **predict outcomes** of actions before trying them in the lab.
+
+### Level 5 (Innovating)
+
+* Focus on **coaching, strategy, and system-level thinking**.
+* Encourage learners to **teach back** a concept or mentor a peer.
+* Pose **enterprise or “what if” scenarios** that require analysis.
+* Ask them to design or critique workflows, not just perform steps.
+
+---
+
+## 3. Practice Exercise Design Rules
+
+* Exercises must be **different in surface form** from verification (no reuse of actual questions/probes).
+* Cover the **same underlying skills**.
+* Encourage **explanation of reasoning** (not just execution).
+* Use the **LEB fixtures** but with **variations** (different filenames, data, branch names, etc.).
+* End with **reflection prompts**:
+
+  * “What did you learn here?”
+  * “How will this help you in verification?”
+
+---
+
+## 4. Instructor Flow
+
+1. **Check-in:** gather background + run warm-up KCB items.
+2. **Level placement:** place learner in tentative level band.
+3. **Select prep path:** choose exercises from SF aligned to their level.
+4. **Practice & reflect:** run activities in LEB (with guidance or variations).
+5. **Confidence check:** ask learner what they still feel uncertain about.
+6. **Next steps:** recommend reading, peer discussion, or a `make reset` in the LEB before attempting verification.
+
+---
+
+## Example Structure (Generic)
+
+* **Skill focus (from SF):** “Execute branching operations.”
+* **Verification probe (VCM):** check branch exists with `git branch`.
+* **Prep exercise (PIB):**
+
+  * Task: “Create two new branches with meaningful names, switch between them, and describe how you confirmed which branch is active.”
+  * Variation ensures it’s not the same as verification, but covers the same skill.
+
