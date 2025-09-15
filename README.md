@@ -52,7 +52,7 @@ This stack defines the **end-to-end flow** of how skills are taught, prepared, a
 
 ---
 
-## 4. 🧪 Lab Environment Blueprint (LEB)
+## 4. 🧪 Lab Environment (LEB)
 
 **Purpose:** Provides a **sandbox** for skill practice and verification.
 
@@ -68,7 +68,7 @@ This stack defines the **end-to-end flow** of how skills are taught, prepared, a
 
 ---
 
-## 5. 👩‍🏫 Preparation Instructor Blueprint (PIB)
+## 5. 👩‍🏫 Preparation Instructor (PIB)
 
 **Purpose:** Guides learners in **preparing for verification**.
 
@@ -110,9 +110,9 @@ When publishing these blueprints together:
 
 - At the end of **SF**, link to PIB: _“See Preparation Instructor Blueprint for how these skills are introduced and practiced before verification.”_
 - In **VCM**, note: _“Preparation instructors use this map to design practice activities, but with varied probes.”_
-- In **KCB**, note: _“Sample items may be adapted by instructors for warm-up assessment (see PIB).”_
-- In **LEB**, note: _“Preparation instructors use the same environment with varied tasks (see PIB).”_
-- In **PIB**, cross-link back: _“This document draws on SF, VCM, KCB, and LEB.”_
+- In **KC**, note: _“Sample items may be adapted by instructors for warm-up assessment (see PIB).”_
+- In **LE**, note: _“Preparation instructors use the same environment with varied tasks (see PIB).”_
+- In **PI**, cross-link back: _“This document draws on SF, VCM, KCB, and LEB.”_
 
 ---
 
@@ -138,16 +138,55 @@ This matrix shows how the blueprint terms we use map to established concepts in 
 
 # Usage
 
-# Initialize a workspace for a topic (creates work/<topic-slug>/generators)
+# Initialize a workspace for a topic slug (creates work/<slug>/generators)
 
-python main.py init <topic> [--force]
+python main.py init <slug> [--force]
 
-# Render the skill-framework prompt into generators/ and placeholder result in work/<topic-slug>/
+# Render the skill-framework prompt (uses <slug> for paths, --topic for templates)
 
-python main.py render <topic> skill-framework
+python main.py render <slug> skill-framework --topic "<Human-Friendly Topic Name>"
 
 # Render other artifacts after pasting skill-framework.md into ChatGPT
 
-python main.py render <topic> knowledge-check-blueprint
-python main.py render <topic> lab-environment-blueprint
-python main.py render <topic> skill-framework-verifier --mcp-tools-fn example-bash-mcp.json
+python main.py render <slug> knowledge-check --topic "<Human-Friendly Topic Name>"
+python main.py render <slug> lab-environment --topic "<Human-Friendly Topic Name>"
+python main.py render <slug> skill-framework-verifier --topic "<Human-Friendly Topic Name>" \
+ --mcp-tools-fn example-bash-mcp.json
+
+# Document Samples
+
+Here are examples of the templates for each artifact. These can also be found in the `artifacts/ directory` but are repeated here to make it easy to paste this entire README into chatgpt.
+
+# Reference Templates
+
+These are the templates used to generate each artifact. Leave these template variables in place when copying.
+
+## SF = “what to learn”
+
+<SF TEMPLATE>
+{{skill_framework}}
+</SF TEMPLATE>
+
+## VCM = “how to test”
+
+<VCM TEMPLATE>
+{{skill_framework_verifier}}
+</VCM TEMPLATE>
+
+## KCB = “knowledge checks”
+
+<KCB TEMPLATE>
+{{knowledge_check}}
+</KCB TEMPLATE>
+
+## LEB = “sandbox”
+
+<LEB TEMPLATE>
+{{lab_environment}}
+</LEB TEMPLATE>
+
+## PIB = “prep coach”
+
+<PIB TEMPLATE>
+{{preparation_instructor}}
+</PIB TEMPLATE>
