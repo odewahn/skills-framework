@@ -1,0 +1,6 @@
+[
+  {"ts": "2025-09-16T12:01:03Z", "level": "ERROR", "service": "api", "code": 500, "user": null},
+  {"ts": "2025-09-16T12:01:05Z", "level": "WARN", "service": "worker", "queue": "email", "retries": 2},
+  {"ts": "2025-09-16T12:01:07Z", "level": "INFO", "service": "http", "status": 200, "path": "/health"},
+  {"ts": "2025-09-16T12:01:08Z", "level": "ERROR", "service": "db", "message": "timeout exceeded", "ms": 3000}
+]

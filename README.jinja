@@ -131,15 +131,24 @@ Each document plays a distinct role but links with the others to create an end-t
 # ⚙️ CLI Usage
 
 ```bash
-python main.py init <slug> [--force]
+python main.py init regex [--force]
 
 # Render the skill framework
-python main.py render <slug> skill-framework --topic "<Topic Name>"
+python main.py render regex skill-framework --topic "Regular Expressions with Bash"
 
 # Render the other artifacts
-python main.py render <slug> practice-questions --topic "<Topic Name>"
+python main.py render regex \
+   practice-questions \
+   --topic "Regular Expressions with Bash" \
+   --mcp-context ../work/regex/mcp-context.json
+
+python main.py render lab-environment \ 
+   practice-questions \
+   --topic "Regular Expressions with Bash" \
+   --mcp-context ../work/regex/mcp-context.json
+
 python main.py render <slug> lab-environment --topic "<Topic Name>"
-python main.py render <slug> skill-verifier --topic "<Topic Name>" --mcp-tools-fn example-bash-mcp.json
+python main.py render regex skill-verifier --topic "Regular Expressions with Bash" --mcp-context=../work/regex.json
 python main.py render <slug> prep-guide --topic "<Topic Name>"
 ```
 

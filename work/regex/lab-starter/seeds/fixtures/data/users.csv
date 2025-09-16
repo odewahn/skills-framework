@@ -1,0 +1,5 @@
+name,email,ip,role
+alice,alice@example.com,192.168.0.2,admin
+bob,bob@example.com,10.0.0.5,staff
+charlie,charlie@example.com,172.16.0.10,viewer
+diana,diana.smith@corp.local,fe80::1,staff

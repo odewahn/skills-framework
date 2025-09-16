@@ -1,4 +1,4 @@
-**Topic:** {{topic}}
+**Topic:** Regular Expressions with Bash
 
 **Goal:** Create a structured skill framework for the topic that is:
 

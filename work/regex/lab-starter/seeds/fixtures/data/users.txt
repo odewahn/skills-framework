@@ -1,0 +1,4 @@
+alice:alice@example.com:192.168.0.2
+bob:bob@example.com:10.0.0.5
+charlie:charlie@example.com:172.16.0.10
+diana:diana.smith@corp.local:fe80::1

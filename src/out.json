@@ -1,0 +1,7 @@
+[09/16/25 16:01:07] INFO     Reading file from ../work/regex/metadata.yaml                           main.py:118
+{
+  "metadata": {
+    "display_topic": "Regular expressions with bash",
+    "slug": "regex"
+  }
+}

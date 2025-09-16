@@ -1,0 +1,4 @@
+2025-09-16T12:01:03Z ERROR api request_id=abc123 user=anonymous path=/login status=500
+2025-09-16T12:01:05Z WARN  worker id=7 queue=email retries=2
+2025-09-16T12:01:07Z INFO  http 200 /health
+2025-09-16T12:01:08Z ERROR db conn=pool-3x timeout exceeded after 3000ms
