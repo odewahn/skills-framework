@@ -1,0 +1,64 @@
+# 🔎 Skill Verifier
+
+The Skill Verifier connects the **Skill Framework** (what to learn) with the **MCP toolset** (what can be programmatically checked).
+
+---
+
+## Purpose
+
+- Identify which skills are auto-verifiable, which require scaffolding, which suit knowledge checks, and which require manual review  
+- Define the fixtures (repos, datasets, files) needed for each skill  
+- Suggest probes (commands, queries, inspections)  
+- Establish pass/fail criteria and reset conditions  
+- Ensure results are consistent with a standard schema  
+
+---
+
+## Skill Framework Link
+
+{{skill_framework}}
+
+---
+
+## MCP Context
+
+Here are some of the MCP tools available. Consider how you would use them when making your response:
+
+{{mcp_context}}
+
+---
+
+## Result Record Schema
+
+```json
+{
+  "status": "PASS|FAIL",
+  "skill": "<skill text>",
+  "observations": "<string or list>",
+  "evidence": { "stdout": "<captured output>", "stderr": "", "files": [] },
+  "hints": ["<remediation suggestions>"]
+}
+```
+
+---
+
+## Skills & Verification Map
+
+### Level 1 – Exploring
+
+**Skill:** [paste skill]
+
+- Initial feasibility: [auto-verifiable | scaffolding | knowledge check | manual review]  
+- Verification mode: [lab probe | knowledge check | manual review]  
+- Required fixtures: [repo/db/file]  
+- Suggested probes: [shell commands, file reads]  
+- Knowledge check example (if relevant):  
+  Q: …  
+  A: …  
+- Pass/Fail criteria: …  
+- Reset required: [true/false]  
+- Notes: …
+
+---
+
+Repeat for all skills, across all levels.

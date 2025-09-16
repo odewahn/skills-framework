@@ -1,0 +1,178 @@
+# 📚 Skill System Stack
+
+This repo defines a **5-part system** for teaching, practicing, and verifying skills in a consistent way.
+Each document plays a distinct role but links with the others to create an end-to-end flow — from defining skills, to preparing learners, to verifying them in a reproducible lab environment.
+
+---
+
+## ✅ The Five-Document Ecosystem
+
+| Document               | Inputs                                                   | Outputs                                   | Primary Audience    |
+| ---------------------- | -------------------------------------------------------- | ----------------------------------------- | ------------------- |
+| **Skill Framework**    | Topic                                                    | Leveled skill list                        | Authors             |
+| **Skill Verifier**     | Skill Framework, MCP tools                               | Probes, pass/fail rules, fixtures needed  | Verifiers           |
+| **Practice Questions** | Skill Framework                                          | Reusable pool of questions tied to skills | Instructors         |
+| **Lab Environment**    | Skill Verifier fixtures                                  | Scripts, Makefile, ZIP                    | Learners, Verifiers |
+| **Prep Guide**         | Framework, Verifier, Practice Questions, Lab Environment | Prep pathways distinct from verification  | Instructors         |
+
+---
+
+## 1. 🧩 Skill Framework
+
+**Purpose:** Defines _what_ learners should know and do.
+
+- Progressive levels: Exploring → Applying → Building → Advancing → Innovating
+- Skills written with Bloom’s verbs, 7–13 per level
+- Professional/enterprise focus
+
+**Feeds into:**
+
+- Skill Verifier (defines how to measure each skill)
+- Practice Questions (recall checks)
+- Lab Environment (fixtures for hands-on practice)
+- Prep Guide (chooses prep exercises aligned to level)
+
+---
+
+## 2. 🔎 Skill Verifier
+
+**Purpose:** Defines _how_ to measure skills.
+
+- Maps skills to verification methods (auto, manual, practice question, lab)
+- Lists probes (commands, file checks, dataset queries)
+- Documents pass/fail criteria
+- Notes reset/reproducibility conditions
+
+**Feeds into:**
+
+- Lab Environment (fixtures to prepare for verification)
+- Prep Guide (designs practice drills, distinct from verification probes)
+
+---
+
+## 3. 📝 Practice Questions
+
+**Purpose:** Provides **reusable practice questions** for warm-ups and formative checks.
+
+- Question types: multiple choice, true/false, short answer
+- Each question tied directly to a skill in the Skill Framework
+- Includes correct answers, distractors, and hints
+- Used primarily in prep sessions, not in the official Skill Verifier set
+
+**Feeds into:**
+
+- Prep Guide (for warm-up and formative questions that differ from verification items)
+- Skill Verifier (can inspire verification questions, but should not be reused verbatim)
+
+---
+
+## 4. 🧪 Lab Environment
+
+**Purpose:** Provides a **sandbox** for skill practice and verification.
+
+- Defines fixtures: repos, datasets, configs
+- Provides scripts (`bootstrap.sh`, `reset.sh`, `verify.sh`)
+- Orchestrates with `Makefile`
+- Packages into a distributable ZIP
+
+**Feeds into:**
+
+- Skill Verifier (fixtures for auto-verification)
+- Prep Guide (practice activities inside the same environment, with variations)
+
+---
+
+## 5. 👩‍🏫 Prep Guide
+
+**Purpose:** Guides learners in **preparing for verification**.
+
+- Makes initial level assessment (background + varied Practice Questions)
+- Places learner into a skill level band (Exploring → Innovating)
+- Assigns **distinct prep exercises** (different from verification, but aligned)
+- Uses **Lab Environment** with small variations
+- Encourages reflection and self-assessment
+
+**Feeds from:**
+
+- Skill Framework (skills to target)
+- Skill Verifier (areas to prepare, without reusing probes)
+- Practice Questions (sample items, re-worded for practice)
+- Lab Environment (sandbox for prep labs)
+
+---
+
+# 🔄 How They Fit Together
+
+1. **Skill Framework** = the map of skills
+2. **Skill Verifier** = the measuring system
+3. **Practice Questions** = the quiz bank for warm-ups
+4. **Lab Environment** = the sandbox
+5. **Prep Guide** = the practice coach
+
+👉 Learner flow:
+
+- Prep Guide starts with warm-up questions (Practice Questions) + background
+- Places learner on Skill Framework level
+- Recommends prep exercises (distinct from verification, but in Lab Environment)
+- When ready → learner takes verification using Skill Verifier in Lab Environment
+
+---
+
+# 📎 Cross-References in Docs
+
+- **Skill Framework** → “See Prep Guide for how these skills are introduced and practiced before verification.”
+- **Skill Verifier** → “Prep Guides may design practice activities informed by this map, but must not reuse probes.”
+- **Practice Questions** → “Sample items may be adapted by instructors for warm-up assessment (see Prep Guide).”
+- **Lab Environment** → “The same environment is used for practice (Prep Guide) and verification (Skill Verifier), with varied tasks.”
+- **Prep Guide** → “This document draws on Skill Framework, Skill Verifier, Practice Questions, and Lab Environment.”
+
+---
+
+# ⚙️ CLI Usage
+
+```bash
+python main.py init <slug> [--force]
+
+# Render the skill framework
+python main.py render <slug> skill-framework --topic "<Topic Name>"
+
+# Render the other artifacts
+python main.py render <slug> practice-questions --topic "<Topic Name>"
+python main.py render <slug> lab-environment --topic "<Topic Name>"
+python main.py render <slug> skill-verifier --topic "<Topic Name>" --mcp-tools-fn example-bash-mcp.json
+python main.py render <slug> prep-guide --topic "<Topic Name>"
+```
+
+# Document Samples
+
+Here are examples of the templates for each artifact. These can also be found in the `artifacts/ directory` but are repeated here to make it easy to paste this entire README into chatgpt.
+
+## Skill Framework
+
+```
+{{skill_framework}}
+```
+
+## Skill Verifier
+
+```
+{{skill_verifier}}
+```
+
+## Practice Questions
+
+```
+{{practice_questions}}
+```
+
+## Lab Environment
+
+```
+{{lab_environment}}
+```
+
+## Prep Guide
+
+```
+{{prep_guide}}
+```
