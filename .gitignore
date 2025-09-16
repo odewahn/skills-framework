@@ -1,5 +1,8 @@
 # Misc Files
 .DS_Store
+*.zip
+skill-system-templates/
+README-generated.md
 
 # Python-generated files
 __pycache__/

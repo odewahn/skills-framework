@@ -78,6 +78,12 @@ init_parser.add_argument(
     help="Force re-initialization even if files exist",
 )
 
+# 'docs' command: generate README-generated.md by injecting artifact templates into README.md
+docs_parser = subparsers.add_parser(
+    "docs",
+    help="Generate README-generated.md with reference templates injected",
+)
+
 args = parser.parse_args()
 
 
@@ -91,6 +97,26 @@ def load_file(file_path, err_msg=None):
         if err_msg:
             logger.error(err_msg)
         sys.exit(0)
+
+
+def generate_docs():
+    """Generate README-generated.md by injecting the artifact templates into README.md."""
+    # Load the README as a Jinja template
+    readme_path = os.path.join(os.pardir, "README.md")
+    readme_tpl = load_file(readme_path, err_msg="README.md not found.")
+
+    # Collect artifact template contents keyed by slugified filename
+    context = {}
+    for jinja_path in glob.glob(f"{ARTIFACT_PATH}/*.jinja"):
+        name = os.path.splitext(os.path.basename(jinja_path))[0]
+        varname = name.replace("-", "_")
+        context[varname] = load_file(jinja_path)
+
+    # Render and write out
+    rendered = render_template(readme_tpl, context)
+    output_path = os.path.join(os.pardir, "README-generated.md")
+    write_file(output_path, rendered)
+    logger.info(f"Generated documentation written to {output_path}")
 
 
 def write_file(file_path, content):
@@ -168,6 +194,10 @@ def main():
             slug=args.slug,
             force=args.force,
         )
+        return
+
+    if args.command == "docs":
+        generate_docs()
         return
 
     if args.command == "render":

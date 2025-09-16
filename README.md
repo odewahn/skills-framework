@@ -1,157 +1,174 @@
-# 📚 Skill System Blueprint Stack
+Perfect — let’s roll back to that version. Here’s the **cleaned-up README draft** you liked:
 
-This stack defines the **end-to-end flow** of how skills are taught, prepared, and verified. Each document has a distinct role, and they link together.
+- Short intro
+- Summary table right at the top
+- No acronyms, no “blueprint” everywhere
+- Each document described in detail with role + connections
+
+I’ve added the **Mermaid diagram** you requested at the end so the flow is visual too.
 
 ---
 
-## 1. 🧩 Skill Framework (SF)
+# 📚 Skill System Stack
 
-**Purpose:** Defines _what_ learners should know/do.
+This repo defines a **5-part system** for teaching, practicing, and verifying skills in a consistent way.
+Each document plays a distinct role but links with the others to create an end-to-end flow — from defining skills, to preparing learners, to verifying them in a reproducible lab environment.
 
-- Progressive levels: Exploring → Applying → Building → Advancing → Innovating.
-- Skills written with Bloom’s verbs, 7–13 per level.
-- Professional/enterprise focus.
+---
+
+## ✅ The Five-Document Ecosystem
+
+| Document             | Inputs                                               | Outputs                                  | Primary Audience    |
+| -------------------- | ---------------------------------------------------- | ---------------------------------------- | ------------------- |
+| **Skills Framework** | Topic                                                | Leveled skill list                       | Authors             |
+| **Skills Verifier**  | Skills Framework, MCP tools                          | Probes, pass/fail rules, fixtures needed | Verifiers           |
+| **Knowledge Bank**   | Skills Framework                                     | Question bank tied to skills             | Instructors         |
+| **Lab Environment**  | Skills Verifier fixtures                             | Scripts, Makefile, ZIP                   | Learners, Verifiers |
+| **Prep Guide**       | Framework, Verifier, Knowledge Bank, Lab Environment | Prep pathways distinct from verification | Instructors         |
+
+---
+
+## 1. 🧩 Skills Framework
+
+**Purpose:** Defines _what_ learners should know and do.
+
+- Progressive levels: Exploring → Applying → Building → Advancing → Innovating
+- Skills written with Bloom’s verbs, 7–13 per level
+- Professional/enterprise focus
 
 **Feeds into:**
 
-- VCM (defines what can be verified)
-- KCB (knowledge recall checks)
-- LEB (fixtures for hands-on practice)
-- PIB (chooses prep exercises aligned to level)
+- Skills Verifier (defines how to measure each skill)
+- Knowledge Bank (recall questions)
+- Lab Environment (fixtures for hands-on practice)
+- Prep Guide (chooses prep exercises aligned to level)
 
 ---
 
-## 2. 🔎 Verification Capability Map (VCM)
+## 2. 🔎 Skills Verifier
 
 **Purpose:** Defines _how_ to measure skills.
 
-- Maps skills to verification methods (auto, manual, knowledge check).
-- Lists probes (commands, file checks, dataset queries).
-- Documents pass/fail criteria.
-- Notes reset/reproducibility conditions.
+- Maps skills to verification methods (auto, manual, knowledge check)
+- Lists probes (commands, file checks, dataset queries)
+- Documents pass/fail criteria
+- Notes reset/reproducibility conditions
 
 **Feeds into:**
 
-- LEB (what fixtures to prepare for verification)
-- PIB (designs similar but distinct prep drills)
+- Lab Environment (fixtures to prepare for verification)
+- Prep Guide (designs practice drills, distinct from verification probes)
 
 ---
 
-## 3. 📝 Knowledge Check Blueprint (KCB)
+## 3. 📝 Knowledge Bank
 
 **Purpose:** Provides **reusable knowledge questions**.
 
-- Question types: multiple choice, true/false, short answer.
-- Each question tied directly to a skill in SF.
-- Includes correct answers, distractors, and hints.
+- Question types: multiple choice, true/false, short answer
+- Each question tied directly to a skill in the Skills Framework
+- Includes correct answers, distractors, and hints
 
 **Feeds into:**
 
-- VCM (for verifiable recall checks)
-- PIB (for warm-up questions that differ from verification set)
+- Skills Verifier (for verifiable recall checks)
+- Prep Guide (for warm-up questions that differ from verification set)
 
 ---
 
-## 4. 🧪 Lab Environment (LEB)
+## 4. 🧪 Lab Environment
 
 **Purpose:** Provides a **sandbox** for skill practice and verification.
 
-- Defines fixtures: repos, datasets, configs.
-- Provides scripts (`bootstrap.sh`, `reset.sh`, `verify.sh`).
-- Orchestrates with `Makefile`.
-- Packages into a distributable ZIP.
+- Defines fixtures: repos, datasets, configs
+- Provides scripts (`bootstrap.sh`, `reset.sh`, `verify.sh`)
+- Orchestrates with `Makefile`
+- Packages into a distributable ZIP
 
 **Feeds into:**
 
-- VCM (fixtures for auto-verification)
-- PIB (prep activities inside the same environment, with variations)
+- Skills Verifier (fixtures for auto-verification)
+- Prep Guide (practice activities inside the same environment, with variations)
 
 ---
 
-## 5. 👩‍🏫 Preparation Instructor (PIB)
+## 5. 👩‍🏫 Prep Guide
 
 **Purpose:** Guides learners in **preparing for verification**.
 
-- Makes initial level assessment (background + varied KCB questions).
-- Places learner into a skill level band (Exploring → Innovating).
-- Assigns **distinct prep exercises** (different from verification, but aligned).
-- Uses **LEB environment** with small variations.
-- Encourages reflection and self-assessment.
+- Makes initial level assessment (background + varied Knowledge Bank questions)
+- Places learner into a skill level band (Exploring → Innovating)
+- Assigns **distinct prep exercises** (different from verification, but aligned)
+- Uses **Lab Environment** with small variations
+- Encourages reflection and self-assessment
 
 **Feeds from:**
 
-- SF (skills to target)
-- VCM (skill areas to prepare, without reusing probes)
-- KCB (sample questions, re-worded for practice)
-- LEB (sandbox for prep labs)
+- Skills Framework (skills to target)
+- Skills Verifier (areas to prepare, without reusing probes)
+- Knowledge Bank (sample questions, re-worded for practice)
+- Lab Environment (sandbox for prep labs)
 
 ---
 
 # 🔄 How They Fit Together
 
-1. **SF** = the map of skills.
-2. **VCM** = the measuring system.
-3. **KCB** = the quiz bank.
-4. **LEB** = the sandbox environment.
-5. **PIB** = the practice coach.
+1. **Skills Framework** = the map of skills
+2. **Skills Verifier** = the measuring system
+3. **Knowledge Bank** = the quiz bank
+4. **Lab Environment** = the sandbox
+5. **Prep Guide** = the practice coach
 
 👉 Learner flow:
 
-- Instructor (PIB) starts with warm-up questions (KCB) + background.
-- Places learner on SF level.
-- Recommends prep exercises (distinct from verification, but in LEB).
-- When ready → learner takes verification using VCM in LEB.
+- Prep Guide starts with warm-up questions (Knowledge Bank) + background
+- Places learner on Skills Framework level
+- Recommends prep exercises (distinct from verification, but in Lab Environment)
+- When ready → learner takes verification using Skills Verifier in Lab Environment
 
 ---
 
 # 📎 Cross-References in Docs
 
-When publishing these blueprints together:
-
-- At the end of **SF**, link to PIB: _“See Preparation Instructor Blueprint for how these skills are introduced and practiced before verification.”_
-- In **VCM**, note: _“Preparation instructors use this map to design practice activities, but with varied probes.”_
-- In **KC**, note: _“Sample items may be adapted by instructors for warm-up assessment (see PIB).”_
-- In **LE**, note: _“Preparation instructors use the same environment with varied tasks (see PIB).”_
-- In **PI**, cross-link back: _“This document draws on SF, VCM, KCB, and LEB.”_
+- **Skills Framework** → “See Prep Guide for how these skills are introduced and practiced before verification.”
+- **Skills Verifier** → “Prep Guides may design practice activities informed by this map, but must not reuse probes.”
+- **Knowledge Bank** → “Sample items may be adapted by instructors for warm-up assessment (see Prep Guide).”
+- **Lab Environment** → “The same environment is used for practice (Prep Guide) and verification (Skills Verifier), with varied tasks.”
+- **Prep Guide** → “This document draws on Skills Framework, Skills Verifier, Knowledge Bank, and Lab Environment.”
 
 ---
 
-✅ This gives you a **5-document ecosystem**:
+# ⚙️ CLI Usage
 
-- SF = “what to learn”
-- VCM = “how to test”
-- KCB = “knowledge checks”
-- LEB = “sandbox”
-- PIB = “prep coach”
-
-# 📚 Blueprint Terminology Crosswalk
-
-This matrix shows how the blueprint terms we use map to established concepts in instructional design, assessment, and training.
-
-| **Our Term**                              | **Closest Terms of Art**                                                                  | **Notes / Differences**                                                                   |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| 🧩 Skill Framework (SF)                   | Learning objectives, competency frameworks, exam objective domains                        | Structured across 5 progressive levels (Exploring → Innovating); enterprise skill focus.  |
-| 🔎 Verification Capability Map (VCM)      | Assessment blueprint, test specifications, performance task rubrics, probes/checks        | Tailored for hands-on skills; distinguishes auto-verifiable vs. manual vs. fixture-based. |
-| 📝 Knowledge Check Blueprint (KCB)        | Item bank, knowledge checks, formative quizzes                                            | Each question links directly to skills; stored in Markdown for human + machine use.       |
-| 🧪 Lab Environment Blueprint (LEB)        | Performance-based testing environments, practical labs/sandboxes, simulation environments | Codifies reproducibility (bootstrap/reset/verify/packaging); CI/CD-style orchestration.   |
-| 👩‍🏫 Preparation Instructor Blueprint (PIB) | Study guides, formative assessments, tutoring scripts/instructor guides                   | Uses SF+VCM+KCB+LEB inputs; creates distinct practice exercises, not reused verification. |
-
-# Usage
-
-# Initialize a workspace for a topic slug (creates work/<slug>/generators)
-
+```bash
 python main.py init <slug> [--force]
 
-# Render the skill-framework prompt (uses <slug> for paths, --topic for templates)
+# Render the skills framework
+python main.py render <slug> skills-framework --topic "<Topic Name>"
 
-python main.py render <slug> skill-framework --topic "<Human-Friendly Topic Name>"
+# Render the other artifacts
+python main.py render <slug> knowledge-bank --topic "<Topic Name>"
+python main.py render <slug> lab-environment --topic "<Topic Name>"
+python main.py render <slug> skills-verifier --topic "<Topic Name>" --mcp-tools-fn example-bash-mcp.json
+python main.py render <slug> prep-guide --topic "<Topic Name>"
+```
 
-# Render other artifacts after pasting skill-framework.md into ChatGPT
+---
 
-python main.py render <slug> knowledge-check --topic "<Human-Friendly Topic Name>"
-python main.py render <slug> lab-environment --topic "<Human-Friendly Topic Name>"
-python main.py render <slug> skill-framework-verifier --topic "<Human-Friendly Topic Name>" \
- --mcp-tools-fn example-bash-mcp.json
+# 📈 Diagram
+
+```mermaid
+flowchart TD
+  T[Topic] --> SF[Skills Framework]
+  SF --> SV[Skills Verifier]
+  SF --> KB[Knowledge Bank]
+  SV --> LE[Lab Environment]
+  SV --> PG[Prep Guide]
+  KB --> PG
+  LE --> PG
+  PG -->|prepares learner| SV
+  SV -->|runs in| LE
+```
 
 # Document Samples
 
