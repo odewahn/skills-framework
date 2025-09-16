@@ -1,4 +1,4 @@
-**Topic:** jq
+**Topic:** Regular expressions with bash
 
 **Goal:** Create a structured skill framework for the topic that is:
 
